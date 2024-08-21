@@ -27,7 +27,7 @@ function App() {
     await createMap({
       container: 'map', // An HTML Element or HTML element ID to render the map in https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/
       center: [-123.1187, 49.2819], // [Longitude, Latitude]
-      zoom: 11
+      zoom: 15
     });
   }
   
@@ -55,6 +55,7 @@ function App() {
       // {({ signOut }) => (
     <main>
       <h1>{user?.signInDetails?.loginId}'s PatTracker</h1>
+      <button onClick={signOut}>Sign out</button>
       <div id="map">
         {/* <MapView
           initialViewState={{
@@ -86,7 +87,7 @@ function App() {
           Review next step of this tutorial.
         </a>
       </div> */}
-      <button onClick={signOut}>Sign out</button>
+      
     </main>
         
       )}
