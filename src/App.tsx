@@ -5,12 +5,20 @@ import { generateClient } from "aws-amplify/data";
 import { Authenticator } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
 
+import { MapView } from "@aws-amplify/ui-react-geo";
+import { NavigationControl } from "react-map-gl";
+
 const client = generateClient<Schema>();
 
 function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
-    
+  const coordinates = {
+    longitude: -115.17077150978058,
+    latitude: 36.12309017212961,
+  };
+
+  
   function deleteTodo(id: string) {
     client.models.Todo.delete({ id })
   }
@@ -31,6 +39,19 @@ function App() {
       {({ signOut, user }) => (
       // {({ signOut }) => (
     <main>
+      <MapView
+        initialViewState={{
+          ...coordinates,
+          zoom: 15,
+        }}
+        style={{
+          width: "100vw",
+          height: "100vh",
+        }}
+      >
+        <NavigationControl position={"top-left"} />
+      </MapView>
+
       <h1>{user?.signInDetails?.loginId}'s todos</h1>
        {/* <h1>My todos</h1> */}
       <button onClick={createTodo}>+ new</button>
