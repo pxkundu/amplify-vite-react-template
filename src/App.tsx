@@ -5,10 +5,10 @@ import { generateClient } from "aws-amplify/data";
 import { Authenticator } from '@aws-amplify/ui-react'
 import '@aws-amplify/ui-react/styles.css'
 
-import { MapView } from "@aws-amplify/ui-react-geo";
-import { NavigationControl } from "react-map-gl";
+// import { MapView } from "@aws-amplify/ui-react-geo";
+// import { NavigationControl } from "react-map-gl";
 
-import '@aws-amplify/ui-react-geo/styles.css';
+// import '@aws-amplify/ui-react-geo/styles.css';
 
 import { createMap } from 'maplibre-gl-js-amplify';
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -18,18 +18,20 @@ const client = generateClient<Schema>();
 function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
-  const coordinates = {
-    longitude: -115.17077150978058,
-    latitude: 36.12309017212961,
-  };
+  // const coordinates = {
+  //   longitude: -115.17077150978058,
+  //   latitude: 36.12309017212961,
+  // };
 
   async function initializeMap() {
-    const map = await createMap({
+    await createMap({
       container: 'map', // An HTML Element or HTML element ID to render the map in https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/
       center: [-123.1187, 49.2819], // [Longitude, Latitude]
       zoom: 11
     });
   }
+  
+  initializeMap();
   
   function deleteTodo(id: string) {
     client.models.Todo.delete({ id })
@@ -51,7 +53,7 @@ function App() {
       {({ signOut, user }) => (
       // {({ signOut }) => (
     <main>
-      <div>
+      <div id="map">
         {/* <MapView
           initialViewState={{
             ...coordinates,
@@ -61,7 +63,7 @@ function App() {
           <NavigationControl position={"top-left"} />
         </MapView> */}
 
-        initializeMap();
+        {/* // initializeMap(); */}
       </div>
       
 
