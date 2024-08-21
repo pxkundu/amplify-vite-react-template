@@ -10,6 +10,9 @@ import { NavigationControl } from "react-map-gl";
 
 import '@aws-amplify/ui-react-geo/styles.css';
 
+import { createMap } from 'maplibre-gl-js-amplify';
+import 'maplibre-gl/dist/maplibre-gl.css';
+
 const client = generateClient<Schema>();
 
 function App() {
@@ -20,6 +23,13 @@ function App() {
     latitude: 36.12309017212961,
   };
 
+  async function initializeMap() {
+    const map = await createMap({
+      container: 'map', // An HTML Element or HTML element ID to render the map in https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/
+      center: [-123.1187, 49.2819], // [Longitude, Latitude]
+      zoom: 11
+    });
+  }
   
   function deleteTodo(id: string) {
     client.models.Todo.delete({ id })
@@ -42,14 +52,16 @@ function App() {
       // {({ signOut }) => (
     <main>
       <div>
-        <MapView
+        {/* <MapView
           initialViewState={{
             ...coordinates,
             zoom: 15,
           }}
         >
           <NavigationControl position={"top-left"} />
-        </MapView>
+        </MapView> */}
+
+        initializeMap();
       </div>
       
 
