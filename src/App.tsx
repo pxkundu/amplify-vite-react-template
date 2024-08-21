@@ -8,6 +8,8 @@ import '@aws-amplify/ui-react/styles.css'
 import { MapView } from "@aws-amplify/ui-react-geo";
 import { NavigationControl } from "react-map-gl";
 
+import '@aws-amplify/ui-react-geo/styles.css';
+
 const client = generateClient<Schema>();
 
 function App() {
@@ -39,18 +41,17 @@ function App() {
       {({ signOut, user }) => (
       // {({ signOut }) => (
     <main>
-      <MapView
-        initialViewState={{
-          ...coordinates,
-          zoom: 15,
-        }}
-        style={{
-          width: "100vw",
-          height: "100vh",
-        }}
-      >
-        <NavigationControl position={"top-left"} />
-      </MapView>
+      <div>
+        <MapView
+          initialViewState={{
+            ...coordinates,
+            zoom: 15,
+          }}
+        >
+          <NavigationControl position={"top-left"} />
+        </MapView>
+      </div>
+      
 
       <h1>{user?.signInDetails?.loginId}'s todos</h1>
        {/* <h1>My todos</h1> */}
