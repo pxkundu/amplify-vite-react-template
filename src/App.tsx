@@ -5,21 +5,22 @@ import { createMap, drawPoints } from 'maplibre-gl-js-amplify';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "../amplify/data/resource";
+import type { Map } from 'maplibre-gl'; // Import Map type
 
 const client = generateClient<Schema>();
 
 function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
-  let map;
+  const [map, setMap] = useState<Map | null>(null); // Initialize map state with correct type
 
   async function initializeMap() {
-    map = await createMap({
+    const mapInstance = await createMap({
       container: 'map', // An HTML Element or HTML element ID to render the map in
       center: [-123.1187, 49.2819], // [Longitude, Latitude]
       zoom: 11
     });
 
-    map.on('load', function () {
+    mapInstance.on('load', function () {
       drawPoints(
         'mySourceName', // Arbitrary source name
         [
@@ -32,7 +33,7 @@ function App() {
             coordinates: [-122.477, 37.8105] // [Longitude, Latitude]
           }
         ],
-        map,
+        mapInstance,
         {
           showCluster: true,
           unclusteredOptions: {
@@ -44,6 +45,8 @@ function App() {
         }
       );
     });
+
+    setMap(mapInstance); // Store the map instance in state
   }
 
   useEffect(() => {
@@ -53,8 +56,13 @@ function App() {
       next: (data) => setTodos([...data.items]),
     });
 
-    return () => subscription.unsubscribe();
-  }, []);
+    return () => {
+      if (map) {
+        map.remove(); // Clean up the map instance on unmount
+      }
+      subscription.unsubscribe();
+    };
+  }, [map]);
 
   function deleteTodo(id: string) {
     client.models.Todo.delete({ id });
