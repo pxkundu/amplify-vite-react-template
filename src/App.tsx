@@ -27,7 +27,7 @@ function App() {
     await createMap({
       container: 'map', // An HTML Element or HTML element ID to render the map in https://maplibre.org/maplibre-gl-js/docs/API/classes/Map/
       center: [-123.1187, 49.2819], // [Longitude, Latitude]
-      zoom: 15
+      zoom: 10
     });
   }
   
@@ -54,8 +54,10 @@ function App() {
       {({ signOut, user }) => (
       // {({ signOut }) => (
     <main>
-      <h1>{user?.signInDetails?.loginId}'s PatTracker</h1>
-      <button onClick={signOut}>Sign out</button>
+      <div>
+        <h1>{user?.signInDetails?.loginId}'s PatTracker</h1>
+        <button onClick={signOut}>Sign out</button>
+      </div>
       <div id="map">
         {/* <MapView
           initialViewState={{
@@ -69,7 +71,6 @@ function App() {
         {/* // initializeMap(); */}
       </div>
       
-
       {/* <h1>{user?.signInDetails?.loginId}'s todos</h1>
        {/* <h1>My todos</h1> */}
       {/* <button onClick={createTodo}>+ new</button>
