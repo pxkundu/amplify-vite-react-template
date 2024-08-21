@@ -79,9 +79,10 @@ function App() {
     <Authenticator>
       {({ signOut, user }) => (
         <main>
-          <div id="map" style={{ height: '400px', width: '100%' }}></div>
+          <div id="map"></div>
 
-          <h1>{user?.username}'s todos</h1>
+          <h1>{user?.signInDetails?.loginId}'s todos</h1>
+          
           <button onClick={createTodo}>+ new</button>
           <ul>
             {todos.map((todo) => (
