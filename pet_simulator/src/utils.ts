@@ -1,7 +1,7 @@
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: MIT-0
 
-import { mqtt, iot } from "aws-iot-device-sdk-v2";
+import { iot } from "aws-iot-device-sdk";
 import { getSecret } from "@aws-lambda-powertools/parameters/secrets";
 import { IoTClient, DescribeEndpointCommand } from "@aws-sdk/client-iot";
 import { randomPosition } from "@turf/random";

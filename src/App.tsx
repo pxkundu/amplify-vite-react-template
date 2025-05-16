@@ -55,7 +55,7 @@ function App() {
       // {({ signOut }) => (
     <main>
       <div>
-        <h1>{user?.signInDetails?.loginId}'s PatTracker</h1>
+        <h3>{user?.signInDetails?.loginId}'s PatTracker</h3>
         <button onClick={signOut}>Sign out</button>
       </div>
       <div id="map">

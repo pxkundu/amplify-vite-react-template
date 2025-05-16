@@ -1,0 +1,104 @@
+[
+  {
+    "name": "SF Bay - East",
+    "frequency": 3000,
+    "geo": {
+      "latitude": 37.692625,
+      "longitude": -122.200682
+    },
+    "settings": {
+      "host": "",
+      "keyPath": "",
+      "certPath": "",
+      "caPath": "",
+      "certificateArn": "",
+      "deviceId": "sensor-sf-east",
+      "deviceType": "location-sensor"
+    }
+  },
+  {
+    "name": "SF Bay - Southeast",
+    "frequency": 3200,
+    "geo": {
+      "latitude": 37.612215,
+      "longitude": -122.162933
+    },
+    "settings": {
+      "host": "",
+      "keyPath": "",
+      "certPath": "",
+      "caPath": "",
+      "certificateArn": "",
+      "deviceId": "sensor-sf-southeast",
+      "deviceType": "location-sensor"
+    }
+  },
+  {
+    "name": "SF Bay - Southwest",
+    "frequency": 3400,
+    "geo": {
+      "latitude": 37.602464,
+      "longitude": -122.338036
+    },
+    "settings": {
+      "host": "",
+      "keyPath": "",
+      "certPath": "",
+      "caPath": "",
+      "certificateArn": "",
+      "deviceId": "sensor-sf-southwest",
+      "deviceType": "location-sensor"
+    }
+  },
+  {
+    "name": "SF Bay - West",
+    "frequency": 3600,
+    "geo": {
+      "latitude": 37.66228,
+      "longitude": -122.36549
+    },
+    "settings": {
+      "host": "",
+      "keyPath": "",
+      "certPath": "",
+      "caPath": "",
+      "certificateArn": "",
+      "deviceId": "sensor-sf-west",
+      "deviceType": "location-sensor"
+    }
+  },
+  {
+    "name": "SF Bay - Northwest",
+    "frequency": 3800,
+    "geo": {
+      "latitude": 37.751372,
+      "longitude": -122.359999
+    },
+    "settings": {
+      "host": "",
+      "keyPath": "",
+      "certPath": "",
+      "caPath": "",
+      "certificateArn": "",
+      "deviceId": "sensor-sf-northwest",
+      "deviceType": "location-sensor"
+    }
+  },
+  {
+    "name": "SF Bay - North",
+    "frequency": 4000,
+    "geo": {
+      "latitude": 37.800307,
+      "longitude": -122.354788
+    },
+    "settings": {
+      "host": "",
+      "keyPath": "",
+      "certPath": "",
+      "caPath": "",
+      "certificateArn": "",
+      "deviceId": "sensor-sf-north",
+      "deviceType": "location-sensor"
+    }
+  }
+]

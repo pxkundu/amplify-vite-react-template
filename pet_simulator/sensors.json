@@ -1,0 +1,19 @@
+[
+  {
+    "name": "pet-tracker",
+    "frequency": 1000,
+    "geo": {
+      "latitude": 37.692625,
+      "longitude": -122.200682
+    },
+    "settings": {
+      "host": "a3vvssziqg9jqt-ats.iot.us-east-1.amazonaws.com",
+      "keyPath": "./certs/pet-tracker-private.pem.key",
+      "certPath": "./certs/pet-tracker-certificate.pem.crt",
+      "caPath": "./certs/AmazonRootCA1.pem",
+      "certificateArn": "arn:aws:iot:us-east-1:583547916577:cert/0292e04b7f84a3efaf2c35b106b03550cbfbf989b003390aca499bc182c0a4d1",
+      "deviceId": "pet-tracker",
+      "deviceType": "location_sensor"
+    }
+  }
+]
